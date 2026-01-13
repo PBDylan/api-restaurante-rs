@@ -1,2 +1,3 @@
 # Ignorando o arquivo dos "Passos.txt"
+node_modules/
 Passos.txt
