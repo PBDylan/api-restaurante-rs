@@ -4,3 +4,5 @@ type TableRepository = {
   created_at: number;
   updated_at: number;
 };
+
+export { TableRepository };

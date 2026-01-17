@@ -2,6 +2,7 @@ import { AppError } from "@/utils/AppError";
 import { NextFunction, Request, Response } from "express";
 import { knex } from "@/database/knex";
 import { z } from "zod";
+import { ProductRepository } from "@/database/types/product-repository";
 
 class ProductsController {
   async index(request: Request, response: Response, next: NextFunction) {
@@ -10,7 +11,7 @@ class ProductsController {
       // se necessário, name seria um exemplo
       const products = await knex<ProductRepository>("products")
         .select()
-        .whereLike("name", `%${name ?? ""}%`) // Filtra por nome se fornecido
+        .where("name", "like", `%${name ?? ""}%`) // Filtra por nome se fornecido
         // O significado é o seguinte: se name for fornecido na consulta, ele
         // filtra os produtos cujo nome contém o valor de name.
         // Especificamente lendo .whereLike("name", `%${name ?? ""}%`), significa:
