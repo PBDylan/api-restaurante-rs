@@ -5,3 +5,5 @@ type ProductRepository = {
   created_at: number;
   updated_at: number;
 };
+
+export { ProductRepository };
